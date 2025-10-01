@@ -137,6 +137,7 @@ public class Lab4 {
                 return "<Не удалось запустить метод>";
         }
 
+        method.setAccessible(true);
         return method.invoke(target, convertedArgs).toString();
     }
 

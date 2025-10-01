@@ -96,25 +96,4 @@ public class Lab2 {
 
         return outputStrBuild.toString();
     }
-
-    public static void main(String[] args) {
-        var obj = new AnnotationTestClass();
-
-        for (Method method : obj.getClass().getDeclaredMethods()) {
-            var modifier = method.getModifiers();
-            if (method.isAnnotationPresent(Repeat.class) && (Modifier.isPrivate(modifier) || Modifier.isProtected(modifier))) {
-                method.setAccessible(true);
-                var argsForMethod = getDefaultArgs(method.getParameterTypes());
-
-                int times = method.getAnnotation(Repeat.class).value();
-                try {
-                    for (int i = 0; i < times; i++)
-                        method.invoke(obj, argsForMethod);
-                }
-                catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
 }

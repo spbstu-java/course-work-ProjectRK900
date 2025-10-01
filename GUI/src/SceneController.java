@@ -254,6 +254,7 @@ public class SceneController {
         });
 
         var methods = objClass.getDeclaredMethods();
+        lab2MethodsCB.getItems().clear();
         lab2MethodsCB.getItems().addAll(methods);
         lab2MethodsCB.getSelectionModel().selectFirst();
         lab2SwitchMethod(Arrays.stream(methods).findFirst().orElse(null));
@@ -398,6 +399,8 @@ public class SceneController {
         var methods = Arrays.stream(Lab4.CollectionStreamAPIExamples.class.getDeclaredMethods())
                 .filter(method -> !method.isSynthetic())  // lambda filter
                 .toArray(Method[]::new);
+
+        lab4MethodsCB.getItems().clear();
         lab4MethodsCB.getItems().addAll(methods);
         lab4MethodsCB.getSelectionModel().selectFirst();
         lab4SwitchMethod(Arrays.stream(methods).findFirst().orElse(null));
