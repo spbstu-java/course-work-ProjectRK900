@@ -271,10 +271,10 @@ public class SceneController {
             return;
 
         lab2HasPropertyCB.selectedProperty().set(method.isAnnotationPresent(Lab2.Repeat.class));
+        var message = "Имеет аннотацию Repeat";
         if (method.isAnnotationPresent(Lab2.Repeat.class))
-            lab2HasPropertyCB.setText("Имеет аннотацию Repeat (" + method.getAnnotation(Lab2.Repeat.class).value() + ")");
-        else
-            lab2HasPropertyCB.setText("Имеет аннотацию Repeat");
+            message += "(" + method.getAnnotation(Lab2.Repeat.class).value() + ")";
+        lab2HasPropertyCB.setText(message);
 
         var modifier = method.getModifiers();
         if (Modifier.isPrivate(modifier))
@@ -421,7 +421,7 @@ public class SceneController {
     public void lab4ExecuteMethodButton(ActionEvent actionEvent) {
         var method = lab4MethodsCB.getSelectionModel().getSelectedItem();
         try {
-            lab4OutputTA.setText(Lab4.invokeMethodSimple(method, null, lab4ArgumentsTF.getText()));
+            lab4OutputTA.setText(Lab4.invokeMethod(method, null, lab4ArgumentsTF.getText()));
         } catch (Exception e) {
             lab4OutputTA.setText(e.toString());
         }

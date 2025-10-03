@@ -118,7 +118,7 @@ public class Lab4 {
         return String.class;
     }
 
-    public static String invokeMethodSimple(Method method, Object target, String argsString) throws Exception {
+    public static String invokeMethod(Method method, Object target, String argsString) throws Exception {
         argsString = argsString.trim();
         Type[] genericParamTypes = method.getGenericParameterTypes();
         Class<?>[] paramClasses = method.getParameterTypes();
